@@ -5,12 +5,7 @@ var ufElement = document.querySelector('#app input[name=uf]');
 var cepElement = document.querySelector('#app input[name=cep]');
 var btnElement = document.querySelector('#app button');
 
-btnElement.onclick = function consultarCep(){
-
-    logradouroElement.value = '';
-    bairroElement.value = '';
-    localidadeElement.value = '';
-    ufElement.value = '';
+btnElement.onclick = function consultarCep(){  
 
     var cep = cepElement.value;
 
@@ -23,6 +18,10 @@ btnElement.onclick = function consultarCep(){
             
         })
         .catch(function (error) {
+            logradouroElement.value = '';
+            bairroElement.value = '';
+            localidadeElement.value = '';
+            ufElement.value = '';
             cepElement.value = 'CEP Inválido';
         });
 
