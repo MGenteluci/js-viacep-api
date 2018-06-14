@@ -14,17 +14,12 @@ btnElement.onclick = function consultarCep(){
 
     var cep = cepElement.value;
 
-    axios.get('https://viacep.com.br/ws/' + cep + "/json")
+    axios.get('https://viacep.com.br/ws/' + cep + '/json')
         .then(function (response) {
-            var logradouro = response.data.logradouro;
-            var bairro = response.data.bairro;
-            var localidade = response.data.localidade;
-            var uf = response.data.uf;
-
-            logradouroElement.value = logradouro;
-            bairroElement.value = bairro;
-            localidadeElement.value = localidade;
-            ufElement.value = uf;
+            logradouroElement.value = response.data.logradouro;
+            bairroElement.value = response.data.bairro;
+            localidadeElement.value = response.data.localidade;
+            ufElement.value = response.data.uf;
             
         })
         .catch(function (error) {
